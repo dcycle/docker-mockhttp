@@ -1,3 +1,5 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/dcycle/docker-mockhttp/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dcycle/docker-mockhttp/tree/master)
+
 Mock HTTP
 =====
 
