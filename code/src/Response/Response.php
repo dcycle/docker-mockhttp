@@ -22,8 +22,8 @@ abstract class Response implements ResponseInterface {
   /**
    * Constructor.
    *
-   * @param type $x
-   *   What
+   * @param \myproject\Request\RequestInterface $request
+   *   The request.
    */
   public function __construct(RequestInterface $request) {
     $this->request = $request;
@@ -35,8 +35,8 @@ abstract class Response implements ResponseInterface {
   public function run() {
     if ($this->remember()) {
       $this
-      ->requestList()
-      ->remember($this->request);
+        ->requestList()
+        ->remember($this->request);
     }
 
     http_response_code($this->code());
@@ -59,7 +59,7 @@ abstract class Response implements ResponseInterface {
   }
 
   /**
-   * Print the body of the response;
+   * Print the body of the response.
    */
   public function printBody() {
     // By default responses print nothing.

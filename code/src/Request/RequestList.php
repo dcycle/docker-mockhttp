@@ -2,7 +2,6 @@
 
 namespace myproject\Request;
 
-use myproject\Request\RequestInterface;
 use myproject\traits\Environment;
 use myproject\traits\Singleton;
 
@@ -35,10 +34,10 @@ class RequestList {
    *   All requests.
    */
   public function allRequests() : array {
-    if (!file_exists(SELF::REQUESTS_FILE)) {
+    if (!file_exists(self::REQUESTS_FILE)) {
       return [];
     }
-    $contents = file_get_contents(SELF::REQUESTS_FILE);
+    $contents = file_get_contents(self::REQUESTS_FILE);
     $candidate = json_decode($contents, TRUE);
     if (!is_array($candidate)) {
       return [];
@@ -49,11 +48,11 @@ class RequestList {
   /**
    * Save all requests, overwriting existing.
    *
-   * @param array struct
+   * @param array $struct
    *   All requests to save.
    */
   public function save(array $struct) {
-    file_put_contents(SELF::REQUESTS_FILE, json_encode($struct));
+    file_put_contents(self::REQUESTS_FILE, json_encode($struct));
   }
 
   /**

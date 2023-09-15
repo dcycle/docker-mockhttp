@@ -13,13 +13,14 @@ if [ ! -f "$CREDENTIALS" ]; then
   echo "DOCKERHUBPASS=xxx"
   exit;
 else
+  # shellcheck disable=SC1090
   source "$CREDENTIALS";
 fi
 
 ./test.sh
 
 PROJECT=mockhttp
-DATE=`date '+%Y-%m-%d-%H-%M-%S-%Z'`
+DATE=$(date '+%Y-%m-%d-%H-%M-%S-%Z')
 MAJORVERSION='1'
 VERSION='1.0'
 
@@ -40,5 +41,5 @@ docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
 
 docker buildx build -t dcycle/"$PROJECT":"$VERSION" --platform linux/amd64,linux/arm64/v8 --push .
 docker buildx build -t dcycle/"$PROJECT":"$MAJORVERSION" --platform linux/amd64,linux/arm64/v8 --push .
-docker buildx build -t dcycle/"$PROJECT":"$MAJORVERSION".$DATE --platform linux/amd64,linux/arm64/v8 --push .
-docker buildx build -t dcycle/"$PROJECT":"$VERSION".$DATE --platform linux/amd64,linux/arm64/v8 --push .
+docker buildx build -t dcycle/"$PROJECT":"$MAJORVERSION"."$DATE" --platform linux/amd64,linux/arm64/v8 --push .
+docker buildx build -t dcycle/"$PROJECT":"$VERSION"."$DATE" --platform linux/amd64,linux/arm64/v8 --push .

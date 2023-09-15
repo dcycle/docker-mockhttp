@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
+# shellcheck disable=SC1090
 source ~/.docker-host-ssh-credentials
 
 # Create a droplet
 DROPLET_NAME=docker-mockhttp
+# shellcheck disable=SC2029
 IP1=$(ssh "$DOCKERHOSTUSER"@"$DOCKERHOST" \
   "./digitalocean/scripts/new-droplet.sh -aubuntu $DROPLET_NAME")
 # https://github.com/dcycle/docker-digitalocean-php#public-vs-private-ip-addresses
@@ -21,8 +23,8 @@ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
   root@"$IP" "mkdir -p docker-mockhttp-job"
 scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
   ~/.dcycle-docker-credentials.sh \
-  root@$IP:~/.dcycle-docker-credentials.sh
+  root@"$IP":~/.dcycle-docker-credentials.sh
 scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
-  -r * root@"$IP":docker-mockhttp-job
+  -r ./* root@"$IP":docker-mockhttp-job
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
   root@"$IP" "cd docker-mockhttp-job && ls -lah && ./scripts/install-docker-and-rebuild.sh"
