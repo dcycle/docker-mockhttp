@@ -43,6 +43,20 @@ You can now destroy the running container:
     docker kill mockhttp
     docker rm mockhttp
 
+Docker Compose
+-----
+
+You can also include this in your docker compose file, like this:
+
+    ...
+    mockfront:
+      image: dcycle/mockhttp:1
+      volumes:
+      - "./mock-client:/example-responses"
+      ports:
+      - "8091:80"
+    ...
+
 Simulate responses from the server
 -----
 
