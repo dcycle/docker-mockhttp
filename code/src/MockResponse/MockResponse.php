@@ -2,8 +2,8 @@
 
 namespace myproject\MockResponse;
 
-use myproject\Response\Response;
 use myproject\Request\RequestInterface;
+use myproject\Response\Response;
 
 /**
  * A mock response.

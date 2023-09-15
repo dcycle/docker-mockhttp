@@ -29,6 +29,24 @@ trait Environment {
   }
 
   /**
+   * Wrapper around the global $_GET array.
+   */
+  public function globalGet() : array {
+    // @codingStandardsIgnoreStart
+    return $_GET;
+    // @codingStandardsIgnoreEnd
+  }
+
+  /**
+   * Wrapper around the global $_POST array.
+   */
+  public function globalPost() : array {
+    // @codingStandardsIgnoreStart
+    return $_POST;
+    // @codingStandardsIgnoreEnd
+  }
+
+  /**
    * Mockable wrapper around scandir(), with exception handling.
    *
    * @param string $directory

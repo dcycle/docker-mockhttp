@@ -20,7 +20,7 @@ class RequestFactory {
    *   A request.
    */
   public function fromCurrent() : RequestInterface {
-    return $this->fromGetAndPost(get: $_GET, post: $_POST);
+    return $this->fromGetAndPost(get: $this->globalGet(), post: $this->globalPost());
   }
 
   /**
@@ -30,7 +30,7 @@ class RequestFactory {
    *   Get parameters.
    * @param string $post
    *   Post parameters.
-
+   *
    * @return \myproject\Request\RequestInterface
    *   A request.
    */
@@ -66,7 +66,6 @@ class RequestFactory {
    *   The path and get parameters as an array.
    */
   public function pathAndGetToGet(string $pathAndGet) : array {
-    $ret = [];
     $parts = explode('?', $pathAndGet);
 
     $path = $parts[0];
@@ -80,7 +79,7 @@ class RequestFactory {
   }
 
   /**
-   * Get an array from parameters as a string
+   * Get an array from parameters as a string.
    *
    * @param string $string
    *   String parameters such as post_b=c&post_a=z or an empty string.

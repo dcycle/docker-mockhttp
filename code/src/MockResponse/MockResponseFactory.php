@@ -3,7 +3,6 @@
 namespace myproject\MockResponse;
 
 use myproject\Request\RequestInterface;
-use myproject\Response\ResponseInterface;
 use myproject\traits\DependencyInjection;
 use myproject\traits\Environment;
 use myproject\traits\Singleton;
