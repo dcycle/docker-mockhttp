@@ -17,7 +17,7 @@ else
   source "$CREDENTIALS";
 fi
 
-./test.sh
+./scripts/test.sh
 
 PROJECT=mockhttp
 DATE=$(date '+%Y-%m-%d-%H-%M-%S-%Z')
