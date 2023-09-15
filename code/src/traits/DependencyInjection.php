@@ -4,6 +4,7 @@ namespace myproject\traits;
 
 use myproject\CommandLineArgs\CommandLineArgs;
 use myproject\Formatter\FormatterFactory;
+use myproject\MockResponse\MockResponseFactory;
 use myproject\Request\RequestFactory;
 use myproject\Request\RequestList;
 use myproject\Response\ResponseFactory;
@@ -18,6 +19,13 @@ trait DependencyInjection {
    */
   public function commandLineArgs() {
     return CommandLineArgs::instance();
+  }
+
+  /**
+   * Mockable wrapper around MockResponseFactory::instance();.
+   */
+  public function mockResponseFactory() {
+    return MockResponseFactory::instance();
   }
 
   /**

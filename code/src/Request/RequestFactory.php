@@ -20,7 +20,22 @@ class RequestFactory {
    *   A request.
    */
   public function fromCurrent() : RequestInterface {
-    return new Request(get: $_GET, post: $_POST);
+    return $this->fromGetAndPost(get: $_GET, post: $_POST);
+  }
+
+  /**
+   * Makes a request object from the current request.
+   *
+   * @param string $get
+   *   Get parameters.
+   * @param string $post
+   *   Post parameters.
+
+   * @return \myproject\Request\RequestInterface
+   *   A request.
+   */
+  public function fromGetAndPost(array $get, array $post) : RequestInterface {
+    return new Request(get: $get, post: $post);
   }
 
   /**

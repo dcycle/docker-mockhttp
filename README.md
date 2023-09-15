@@ -46,11 +46,21 @@ Simulate responses from the server
 
 Let's say that when you POST to the following page:
 
-    curl -d "post_b=c&post_a=z" "http://0.0.0.0:8123/a/b/c?d=f&a=b"
+    curl -d "c=d" "http://0.0.0.0:8123/hello/world?a=b"
 
 and you want to get a specfic simple response from the server.
 
-You will create a new directory structure []().
+You will create a new directory structure [like this one](https://github.com/dcycle/docker-mockhttp/tree/master/example-responses).
+
+Each subdirectory will contain a response, consisting of metadata and a response file.
+
+Let's say your directory is named './example-responses', you will share it with your container like this:
+
+    docker run --rm -d -p 8123:80 \
+      -v "$(pwd)"/example-responses:/example-responses \
+      --name mockhttp dcycle/mockhttp:1
+
+If you clone this repo and run ./scripts/develop.sh, you will see
 
 Development
 -----

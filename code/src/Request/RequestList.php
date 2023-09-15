@@ -39,7 +39,11 @@ class RequestList {
       return [];
     }
     $contents = file_get_contents(SELF::REQUESTS_FILE);
-    return json_decode($contents, TRUE);
+    $candidate = json_decode($contents, TRUE);
+    if (!is_array($candidate)) {
+      return [];
+    }
+    return $candidate;
   }
 
   /**

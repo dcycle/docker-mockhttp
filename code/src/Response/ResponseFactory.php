@@ -3,6 +3,7 @@
 namespace myproject\Response;
 
 use myproject\Request\RequestInterface;
+use myproject\traits\DependencyInjection;
 use myproject\traits\Environment;
 use myproject\traits\Singleton;
 
@@ -11,6 +12,7 @@ use myproject\traits\Singleton;
  */
 class ResponseFactory {
 
+  use DependencyInjection;
   use Environment;
   use Singleton;
 
@@ -29,6 +31,9 @@ class ResponseFactory {
     }
     elseif ($request->path() == '/_mockhttp/clear') {
       return new ResponseClear($request);
+    }
+    elseif ($candidate = $this->mockResponseFactory()->getIfExists($request)) {
+      return $candidate;
     }
     else {
       return new ResponseNotFound($request);

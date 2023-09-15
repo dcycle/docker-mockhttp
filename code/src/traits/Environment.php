@@ -40,9 +40,15 @@ trait Environment {
    * @throws \Exception
    */
   public function scanDir(string $directory) : array {
-    $return = @scandir($directory);
-    if (!is_array($return)) {
+    $candidates = @scandir($directory);
+    $return = [];
+    if (!is_array($candidates)) {
       throw new \Exception('Could not scan directory ' . $directory);
+    }
+    foreach ($candidates as $candidate) {
+      if (!in_array($candidate, ['.', '..'])) {
+        $return[] = $candidate;
+      }
     }
     return $return;
   }
