@@ -1,0 +1,11 @@
+get:
+  _mockhttp_path: this/is/an/example/path
+  a: b
+post:
+  hello: world
+remember:
+  - type: post
+    var: hello
+# wait 3 seconds before responding
+wait: 3
+code: 200

@@ -1,0 +1,4 @@
+get:
+  _mockhttp_path: this/is/an/example/path
+  a: b
+code: 200
