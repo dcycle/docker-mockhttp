@@ -6,3 +6,5 @@ RUN a2enmod rewrite && \
   pecl install yaml && \
   echo "extension=yaml.so" > /usr/local/etc/php/conf.d/ext-yaml.ini && \
   docker-php-ext-enable yaml
+
+COPY . /var/www/html
