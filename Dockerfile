@@ -8,4 +8,4 @@ RUN a2enmod rewrite && \
   docker-php-ext-enable yaml
 
 COPY . /var/www/html
-COPY .htaccess /var/www/html
+COPY htaccess /var/www/html/.htaccess

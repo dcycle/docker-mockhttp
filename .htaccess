@@ -1,7 +1,0 @@
-# see https://stackoverflow.com/a/10860444/1207752
-# see https://github.com/docker-library/php/issues/179#issuecomment-173274009
-Options +SymLinksIfOwnerMatch
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.php?_mockhttp_path=$1&%{QUERY_STRING} [L]
