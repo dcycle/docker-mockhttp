@@ -2,3 +2,6 @@ get:
   _mockhttp_path: this/is/an/example/path
   a: b
 code: 200
+headers:
+  # Define arbitrary headers and values here.
+  abc: def

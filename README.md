@@ -68,6 +68,8 @@ and you want to get a specfic simple response from the server.
 
 You will create a new directory structure [like this one](https://github.com/dcycle/docker-mockhttp/tree/master/example-responses).
 
+You can define the responses and the headers for given calls in YAML files.
+
 Each subdirectory will contain a response, consisting of metadata and a response file.
 
 Let's say your directory is named './example-responses', you will share it with your container like this:
