@@ -3,4 +3,5 @@ get:
   a: b
 code: 200
 headers:
+  # Define arbitrary headers and values here.
   abc: def
