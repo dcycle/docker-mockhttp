@@ -53,7 +53,7 @@ class MockResponse extends Response {
   /**
    * {@inheritdoc}
    */
-  public function headers() {
+  public function headers() : array {
     if (array_key_exists('headers', $this->yaml)) {
       return $this->yaml['headers'];
     }

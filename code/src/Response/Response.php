@@ -51,7 +51,7 @@ abstract class Response implements ResponseInterface {
   /**
    * Get associative array of headers.
    */
-  public function headers() {
+  public function headers() : array {
     return [];
   }
 
