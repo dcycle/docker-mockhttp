@@ -10,6 +10,9 @@ docker rm mockhttp 2>/dev/null >/dev/null || true
 docker pull php:apache
 docker build -t local-mockhttp .
 
+# Please see the root .gitignore file on why we are doing this:
+/bin/cp htaccess .htaccess
+
 docker run \
   -d -p 8123:80 \
   -v "$(pwd)":/var/www/html \

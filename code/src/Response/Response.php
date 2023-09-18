@@ -40,7 +40,19 @@ abstract class Response implements ResponseInterface {
     }
 
     http_response_code($this->code());
+
+    foreach ($this->headers() as $id => $value) {
+      header($id . ': ' . $value);
+    }
+
     $this->printBody();
+  }
+
+  /**
+   * Get associative array of headers.
+   */
+  public function headers() {
+    return [];
   }
 
   /**

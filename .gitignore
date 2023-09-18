@@ -1,2 +1,10 @@
 .phpunit.result.cache
 .DS_Store
+# We are ignoring .htaccess because in order to copy .htaccess to the image,
+# we need to name it htaccess, then, in the Dockerfile, move it from
+# htaccess to .htaccess. This means that in the repo it needs to be called
+# htaccess (without a dot). However, in ./scripts/develop.sh we are sharing
+# the folder with the container, but we need htaccess to be named .htaccess.
+# Therefore we are copying htaccess to .htaccess every time we run
+# ./scripts/develop.sh, however we do not want to version-control .htaccess.
+.htaccess
