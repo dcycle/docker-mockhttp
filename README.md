@@ -1,4 +1,4 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/dcycle/docker-mockhttp/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dcycle/docker-mockhttp/tree/master)
+[![GitHub Actions](https://github.com/dcycle/docker-jenkins/actions/workflows/config.yml/badge.svg)](../../actions/workflows/config.yml)
 
 Mock HTTP
 =====
