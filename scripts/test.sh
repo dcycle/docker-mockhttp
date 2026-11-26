@@ -9,7 +9,7 @@ set -e
 ./scripts/lint-sh.sh
 ./scripts/unit-tests.sh
 
-docker pull php:5-apache
+docker pull php:8.5-apache
 docker build -t local-mockhttp .
 
 docker run --rm local-mockhttp /bin/bash -c 'ls -lah'
