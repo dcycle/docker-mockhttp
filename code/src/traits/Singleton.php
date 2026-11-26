@@ -12,7 +12,7 @@ trait Singleton {
    *
    * @var object
    */
-  static private $instance;
+  private static $instance;
 
   /**
    * Constructor; private because the only way to get an object is instance().
