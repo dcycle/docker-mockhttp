@@ -28,8 +28,8 @@ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
   root@"$IP" "mkdir -p docker-mockhttp-job"
 scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
   ~/.dcycle-docker-credentials.sh \
-  root@$IP:~/.dcycle-docker-credentials.sh
+  root@"$IP":~/.dcycle-docker-credentials.sh
 scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
-  -r * root@"$IP":docker-mockhttp-job
+  -r ./* root@"$IP":docker-mockhttp-job
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
   root@"$IP" "cd docker-mockhttp-job && ./scripts/install-docker-and-rebuild.sh"
